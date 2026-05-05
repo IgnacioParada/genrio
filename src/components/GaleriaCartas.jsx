@@ -9,6 +9,11 @@ export default function GaleriaCartas() {
   const [cartas, setCartas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
+  // 🔥 FILTROS NUEVOS
+  const [precioMin, setPrecioMin] = useState("");
+  const [precioMax, setPrecioMax] = useState("");
+  const [edicionFiltro, setEdicionFiltro] = useState("");
+
   // PAGINACIÓN
   const [paginaActual, setPaginaActual] = useState(1);
   const cartasPorPagina = 8;
@@ -21,18 +26,37 @@ export default function GaleriaCartas() {
 
   // CARGAR CARTAS
   useEffect(() => {
-
     fetch("https://api.hoc.cl/cartas")
       .then(res => res.json())
       .then(data => setCartas(data));
-
   }, []);
 
-  // FILTRAR CARTAS
-  const cartasFiltradas = cartas.filter(carta =>
-    carta.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-    carta.edicion.toLowerCase().includes(busqueda.toLowerCase())
-  );
+  // 🔥 OBTENER EDICIONES ÚNICAS
+  const edicionesUnicas = [...new Set(cartas.map(c => c.edicion))];
+
+  // 🔥 FILTRAR CARTAS
+  const cartasFiltradas = cartas.filter(carta => {
+
+    const coincideBusqueda =
+      carta.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+      carta.edicion.toLowerCase().includes(busqueda.toLowerCase());
+
+    const coincidePrecioMin =
+      !precioMin || carta.precio >= Number(precioMin);
+
+    const coincidePrecioMax =
+      !precioMax || carta.precio <= Number(precioMax);
+
+    const coincideEdicion =
+      !edicionFiltro || carta.edicion === edicionFiltro;
+
+    return (
+      coincideBusqueda &&
+      coincidePrecioMin &&
+      coincidePrecioMax &&
+      coincideEdicion
+    );
+  });
 
   // PAGINACIÓN
   const indiceUltima = paginaActual * cartasPorPagina;
@@ -51,9 +75,7 @@ export default function GaleriaCartas() {
     );
 
   const cambiarPagina = (num) => {
-
     setPaginaActual(num);
-
   };
 
   return (
@@ -61,7 +83,6 @@ export default function GaleriaCartas() {
     <div className="galeria-container">
 
       {/* BUSCADOR */}
-
       <input
         type="text"
         placeholder="Buscar carta..."
@@ -73,8 +94,49 @@ export default function GaleriaCartas() {
         }}
       />
 
-      {/* GALERÍA */}
+      {/* 🔥 FILTROS */}
+      <div className="filtros">
 
+        <input
+          type="number"
+          placeholder="Precio mínimo"
+          value={precioMin}
+          onChange={(e) => {
+            setPrecioMin(e.target.value);
+            setPaginaActual(1);
+          }}
+        />
+
+        <input
+          type="number"
+          placeholder="Precio máximo"
+          value={precioMax}
+          onChange={(e) => {
+            setPrecioMax(e.target.value);
+            setPaginaActual(1);
+          }}
+        />
+
+        <select
+          value={edicionFiltro}
+          onChange={(e) => {
+            setEdicionFiltro(e.target.value);
+            setPaginaActual(1);
+          }}
+        >
+          <option value="">Todas las ediciones</option>
+
+          {edicionesUnicas.map((ed, i) => (
+            <option key={i} value={ed}>
+              {ed}
+            </option>
+          ))}
+
+        </select>
+
+      </div>
+
+      {/* GALERÍA */}
       <div className="galeria">
 
         {cartasActuales.map(carta => (
@@ -104,7 +166,6 @@ export default function GaleriaCartas() {
       </div>
 
       {/* PAGINACIÓN */}
-
       <div className="paginacion">
 
         {Array.from(
@@ -131,7 +192,6 @@ export default function GaleriaCartas() {
       </div>
 
       {/* ===== MODAL ===== */}
-
       {cartaSeleccionada && (
 
         <div
@@ -147,8 +207,6 @@ export default function GaleriaCartas() {
               e.stopPropagation()
             }
           >
-
-            {/* BOTÓN CERRAR */}
 
             <button
               className="btn-cerrar-modal"
@@ -176,21 +234,13 @@ export default function GaleriaCartas() {
               ).toLocaleString()}
             </p>
 
-            {/* BOTÓN CARRITO */}
-
             <button
               className="btn-agregar-carrito"
               onClick={() => {
-
-                agregarAlCarrito(
-                  cartaSeleccionada
-                );
-
+                agregarAlCarrito(cartaSeleccionada);
               }}
             >
-
               Agregar al carrito
-
             </button>
 
           </div>
@@ -200,7 +250,5 @@ export default function GaleriaCartas() {
       )}
 
     </div>
-
   );
-
 }
