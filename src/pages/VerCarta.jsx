@@ -29,7 +29,7 @@ function Cartas({ setCartaEditar }) {
 
     const response =
       await 
-        fetch("https://api.hoc.cl/api/cartas"
+        fetch("https://api.hoc.cl/cartas"
       );
 
     const data =
@@ -49,7 +49,7 @@ function Cartas({ setCartaEditar }) {
     if (!confirmar) return;
 
     await fetch(
-      `https://api.hoc.cl/api/cartas/${id}`,
+      `https://api.hoc.cl/cartas/${id}`,
       {
         method: "DELETE"
       }

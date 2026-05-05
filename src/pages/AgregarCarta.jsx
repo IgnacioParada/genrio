@@ -95,7 +95,7 @@ function AgregarCarta({
     if (cartaEditar) {
 
       await fetch(
-        `https://api.hoc.cl/api/cartas/${cartaEditar.id}`,
+        `https://api.hoc.cl/cartas/${cartaEditar.id}`,
         {
           method: "PUT",
           body: formData
@@ -111,7 +111,7 @@ function AgregarCarta({
     else {
 
       await fetch(
-        "https://api.hoc.cl/api/cartas",
+        "https://api.hoc.cl/cartas",
         {
           method: "POST",
           body: formData

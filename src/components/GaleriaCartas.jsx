@@ -22,7 +22,7 @@ export default function GaleriaCartas() {
   // CARGAR CARTAS
   useEffect(() => {
 
-    fetch("https://api.hoc.cl/api/cartas")
+    fetch("https://api.hoc.cl/cartas")
       .then(res => res.json())
       .then(data => setCartas(data));
 

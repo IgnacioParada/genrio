@@ -23,7 +23,7 @@ function Login({ setToken }) {
 
       const response =
         await 
-          fetch("https://api.hoc.cl/api/login", 
+          fetch("https://api.hoc.cl/login", 
           {
             method: "POST",
             headers: {
