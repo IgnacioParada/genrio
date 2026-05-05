@@ -1,0 +1,517 @@
+/* ========================= */
+/* FOOTER GENERAL */
+/* ========================= */
+
+.footer {
+
+  background: #111;
+
+  color: white;
+
+  width: 100%;
+
+  margin-top: 50px;
+
+}
+
+
+/* ========================= */
+/* CONTENEDOR */
+/* ========================= */
+
+.footer-container {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  flex-wrap: wrap;
+
+  padding: 40px 20px;
+
+  gap: 40px;
+
+}
+
+
+/* ========================= */
+/* SECCIONES */
+/* ========================= */
+
+.footer-section {
+
+  flex: 1;
+
+  min-width: 250px;
+
+}
+
+
+/* ========================= */
+/* CONTACTO */
+/* ========================= */
+
+.footer-section {
+
+  flex: 1;
+
+  min-width: 250px;
+
+}
+
+
+/* 🔥 CONTACTO usa todo el ancho disponible */
+
+.footer-section.contact {
+
+  flex: 1;
+
+  width: 100%;
+
+}
+
+
+/* ========================= */
+/* FILAS CONTACTO */
+/* ========================= */
+
+.contact-row {
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  margin: 10px 0;
+
+  gap: 15px;
+
+}
+
+
+/* ========================= */
+/* TÍTULOS */
+/* ========================= */
+
+.footer-section h3 {
+
+  margin-bottom: 12px;
+
+  font-size: 18px;
+
+}
+
+
+/* ========================= */
+/* TEXTO */
+/* ========================= */
+
+.footer-section p {
+
+  color: #ccc;
+
+  line-height: 1.6;
+
+}
+
+
+/* ========================= */
+/* LINKS */
+/* ========================= */
+
+.footer-link {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: white;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition: color 0.2s;
+
+}
+
+
+.footer-link:hover {
+
+  color: #00d4ff;
+
+}
+
+
+/* ========================= */
+/* ICONOS */
+/* ========================= */
+
+.social-icon {
+
+  width: 22px;
+
+  height: 22px;
+
+}
+
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+.delivery-btn {
+
+  background: #222;
+
+  border: none;
+
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 25px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: background 0.2s;
+
+  width: 200px; /* mismo tamaño */
+
+  text-align: center;
+
+}
+
+
+.delivery-btn:hover {
+
+  background: #00d4ff;
+
+  color: black;
+
+}
+
+
+/* ========================= */
+/* COPYRIGHT */
+/* ========================= */
+
+.footer-bottom {
+
+  text-align: center;
+
+  padding: 15px;
+
+  background: #000;
+
+  font-size: 14px;
+
+  color: #aaa;
+
+}
+
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal-overlay {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 2000;
+
+}
+
+
+.modal-content {
+
+  background: white;
+
+  color: #333;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  max-width: 400px;
+
+  width: 90%;
+
+  text-align: center;
+
+  animation: fadeIn 0.2s ease;
+
+}
+
+
+.delivery-info {
+
+  margin: 20px 0;
+
+  line-height: 1.6;
+
+}
+
+
+/* ========================= */
+/* LOGOS ENVÍO */
+/* ========================= */
+
+.shipping-logos {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 15px;
+
+}
+
+
+.shipping-logos img {
+
+  height: 40px;
+
+}
+
+
+/* ========================= */
+/* BOTÓN CERRAR */
+/* ========================= */
+
+.close-modal {
+
+  background: #111;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+}
+
+
+.close-modal:hover {
+
+  background: #333;
+
+}
+
+
+/* ========================= */
+/* ANIMACIÓN */
+/* ========================= */
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: scale(0.95);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+  }
+
+}
+
+
+/* ========================= */
+/* 📱 RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .footer-container {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+  }
+
+  .footer-section.contact {
+
+    align-items: center;
+
+  }
+
+  .contact-row {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+  }
+
+}
+
+/* ========================= */
+/* CONTACTO AJUSTE REAL */
+/* ========================= */
+
+.footer-section.contact {
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%; /* 🔥 CLAVE */
+
+}
+
+
+/* FILAS CONTACTO */
+
+.contact-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  width: 100%;
+
+  gap: 15px; /* evita que se peguen */
+
+}
+
+
+/* LINK OCUPA IZQUIERDA */
+
+/* 🔥 EMPUJA EL BOTÓN A LA DERECHA */
+
+.contact-row .footer-link {
+
+  flex-grow: 1;
+
+}
+
+/* ========================= */
+/* GRID CONTACTO */
+/* ========================= */
+
+.contact-grid {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  gap: 40px;
+
+}
+
+
+/* COLUMNA IZQUIERDA */
+
+.contact-left {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+
+
+/* COLUMNA DERECHA */
+
+.contact-right {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+}
+
+
+/* BOTONES */
+
+.delivery-btn {
+
+  width: 200px;
+
+}
+
+
+/* ========================= */
+/* 📱 RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .contact-grid {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+  }
+
+  .contact-right {
+
+    margin-top: 15px;
+
+    align-items: center;
+
+  }
+
+}

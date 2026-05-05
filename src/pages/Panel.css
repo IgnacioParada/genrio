@@ -1,0 +1,246 @@
+/* ===== CONTENEDOR GENERAL ===== */
+
+.panel-container {
+
+  display: flex;
+
+  min-height: 100vh;
+
+  background: #f3f4f6;
+
+  font-family: Arial, sans-serif;
+
+}
+
+
+/* ===== MENÚ LATERAL ===== */
+
+.panel-menu {
+
+  width: 230px;
+
+  background: linear-gradient(
+    180deg,
+    #0f172a,
+    #1e293b
+  );
+
+  padding: 25px 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+/* TÍTULO */
+
+.panel-title {
+
+  color: white;
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  font-size: 22px;
+
+}
+
+
+/* BOTONES DEL MENÚ */
+
+.menu-btn {
+
+  background: transparent;
+
+  border: none;
+
+  color: #cbd5e1;
+
+  padding: 12px;
+
+  margin-bottom: 10px;
+
+  text-align: left;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  font-size: 15px;
+
+}
+
+
+/* HOVER */
+
+.menu-btn:hover {
+
+  background: #334155;
+
+  color: white;
+
+}
+
+
+/* BOTÓN LOGOUT */
+
+.logout-btn {
+
+  margin-top: auto;
+
+  background: #dc2626;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+}
+
+.logout-btn:hover {
+
+  background: #b91c1c;
+
+}
+
+
+/* ===== CONTENIDO ===== */
+
+.panel-content {
+
+  flex: 1;
+
+  padding: 30px;
+
+}
+
+
+/* ===== TABLA (afecta VerCartas) ===== */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+}
+
+
+th {
+
+  background: #0f172a;
+
+  color: white;
+
+  padding: 12px;
+
+  font-weight: bold;
+
+}
+
+
+td {
+
+  padding: 12px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #eee;
+
+}
+
+
+tr:hover {
+
+  background: #f9fafb;
+
+}
+
+
+/* IMAGEN CARTA */
+
+td img {
+
+  width: 80px;
+
+  border-radius: 6px;
+
+}
+
+
+/* BOTONES TABLA */
+
+td button {
+
+  padding: 6px 10px;
+
+  margin: 2px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+}
+
+
+/* EDITAR */
+
+td button:first-child {
+
+  background: #2563eb;
+
+  color: white;
+
+}
+
+
+/* ELIMINAR */
+
+td button:last-child {
+
+  background: #dc2626;
+
+  color: white;
+
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+
+  .panel-menu {
+
+    width: 180px;
+
+  }
+
+  td img {
+
+    width: 60px;
+
+  }
+
+}

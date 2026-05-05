@@ -1,0 +1,257 @@
+.vercartas-container {
+
+  max-width: 1100px;
+
+  width: 100%;
+
+  margin: auto;
+
+  overflow-x: auto;
+
+  box-sizing: border-box;
+
+}
+
+
+/* TÍTULO */
+
+.vercartas-title {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+}
+
+
+/* BUSCADOR */
+
+.vercartas-buscador {
+
+  display: block;
+
+  margin: 0 auto 20px;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  border: 1px solid #ccc;
+
+  width: 100%;
+
+  max-width: 320px;
+
+}
+
+
+/* TABLA */
+
+.vercartas-tabla {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+}
+
+
+/* HEADER */
+
+.vercartas-tabla th {
+
+  background: #0f172a;
+
+  color: white;
+
+  padding: 12px;
+
+}
+
+
+/* CELDAS */
+
+.vercartas-tabla td {
+
+  padding: 12px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #eee;
+
+}
+
+
+/* HOVER */
+
+.vercartas-tabla tr:hover {
+
+  background: #f9fafb;
+
+}
+
+
+/* IMAGEN */
+
+.carta-img {
+
+  width: 80px;
+
+  border-radius: 6px;
+
+}
+
+
+/* ================= */
+/* BOTONES CORREGIDOS */
+/* ================= */
+
+.btn-editar,
+.btn-eliminar {
+
+  width: 90px;          /* mismo tamaño */
+
+  height: 32px;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+/* EDITAR */
+
+.btn-editar {
+
+  background: #2563eb;
+
+  margin-right: 5px;
+
+}
+
+.btn-editar:hover {
+
+  background: #1d4ed8;
+
+}
+
+
+/* ELIMINAR */
+
+.btn-eliminar {
+
+  background: #dc2626;
+
+}
+
+.btn-eliminar:hover {
+
+  background: #b91c1c;
+
+}
+
+
+/* PAGINACIÓN */
+
+.paginacion {
+
+  text-align: center;
+
+  margin-top: 15px;
+
+}
+
+.paginacion button {
+
+  padding: 8px 12px;
+
+  border-radius: 6px;
+
+  border: none;
+
+  background: #eee;
+
+  cursor: pointer;
+
+}
+
+.paginacion button:hover {
+
+  background: #ddd;
+
+}
+
+
+/* ================= */
+/* 📱 TABLA RESPONSIVE */
+/* ================= */
+
+@media (max-width: 768px) {
+
+  .vercartas-tabla {
+
+    font-size: 12px;
+
+  }
+
+  .vercartas-tabla th,
+  .vercartas-tabla td {
+
+    padding: 6px;
+
+  }
+
+  .carta-img {
+
+    width: 50px;
+
+  }
+
+  /* BOTONES MÁS PEQUEÑOS EN MÓVIL */
+
+  .btn-editar,
+  .btn-eliminar {
+
+    width: 70px;
+
+    height: 28px;
+
+    font-size: 11px;
+
+    margin: 2px;
+
+  }
+
+}
+
+
+/* EXTRA SEGURIDAD SCROLL */
+
+.vercartas-container {
+
+  overflow-x: auto;
+
+}

@@ -1,0 +1,369 @@
+/* ========================= */
+/* 🛒 BOTÓN CARRITO */
+/* ========================= */
+
+.carrito-boton {
+
+  position: fixed;
+
+  top: 140px;
+  right: 20px;
+
+  width: 52px;
+  height: 52px;
+
+  background: #111;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+  z-index: 9999;
+
+  transition: 0.2s;
+
+}
+
+
+/* HOVER */
+
+.carrito-boton:hover {
+
+  transform: scale(1.08);
+
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+
+}
+
+
+/* ICONO PNG */
+
+.icono-carrito {
+
+  width: 24px;
+  height: 24px;
+
+  object-fit: contain;
+
+}
+
+
+/* CONTADOR ROJO */
+
+.carrito-contador {
+
+  position: absolute;
+
+  top: -4px;
+  right: -4px;
+
+  background: #ef4444;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  border-radius: 50%;
+
+  padding: 3px 6px;
+
+  min-width: 18px;
+
+  text-align: center;
+
+}
+
+
+
+/* ========================= */
+/* 📦 PANEL CARRITO */
+/* ========================= */
+
+.carrito-panel {
+
+  position: fixed;
+
+  right: 20px;
+
+  top: 200px;
+
+  background: white;
+
+  padding: 16px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+
+  width: 300px;
+
+  z-index: 9998;
+
+  max-height: 70vh;
+
+  overflow-y: auto;
+
+  animation: aparecer 0.2s ease;
+
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes aparecer {
+
+  from {
+
+    opacity: 0;
+    transform: translateY(-10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+
+}
+
+
+
+/* ========================= */
+/* 📦 ITEMS DEL CARRITO */
+/* ========================= */
+
+.carrito-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid #eee;
+
+}
+
+
+/* MINI IMAGEN */
+
+.carrito-img {
+
+  width: 42px;
+
+  height: 58px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+}
+
+
+/* INFO TEXTO */
+
+.carrito-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  font-size: 13px;
+
+}
+
+
+/* NOMBRE */
+
+.carrito-info span:first-child {
+
+  font-size: 13px;
+
+  text-align: left;
+
+}
+
+
+/* PRECIO */
+
+.precio {
+
+  font-weight: bold;
+
+  color: #16a34a;
+
+  font-size: 13px;
+
+}
+
+
+/* BOTÓN ELIMINAR */
+
+.carrito-item button {
+
+  background: transparent;
+
+  border: none;
+
+  color: red;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+}
+
+
+
+/* ========================= */
+/* BOTÓN WHATSAPP */
+/* ========================= */
+
+.btn-whatsapp {
+
+  background: #25D366;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 10px;
+
+  margin-top: 14px;
+
+  width: 100%;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+}
+
+.btn-whatsapp:hover {
+
+  background: #1ebe5d;
+
+}
+
+
+
+/* ========================= */
+/* BOTÓN VACIAR */
+/* ========================= */
+
+.btn-vaciar {
+
+  background: #ef4444;
+
+  color: white;
+
+  border: none;
+
+  padding: 11px;
+
+  border-radius: 10px;
+
+  margin-top: 8px;
+
+  width: 100%;
+
+  cursor: pointer;
+
+}
+
+.btn-vaciar:hover {
+
+  background: #dc2626;
+
+}
+
+
+
+/* ========================= */
+/* 📱 MÓVIL */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .carrito-boton {
+
+    top: auto;
+
+    bottom: 20px;
+
+    right: 15px;
+
+  }
+
+  .carrito-panel {
+
+    top: auto;
+
+    bottom: 80px;
+
+    right: 10px;
+
+    width: 90%;
+
+    max-width: 340px;
+
+  }
+
+}
+/* INFO DEL ITEM */
+
+.carrito-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  text-align: left;
+
+}
+
+
+/* NOMBRE */
+
+.carrito-info .nombre {
+
+  font-size: 14px;
+
+  color: #444;
+
+}
+
+
+/* PRECIO */
+
+.carrito-info .precio {
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  color: #16a34a;
+
+  margin-top: 2px;
+
+}

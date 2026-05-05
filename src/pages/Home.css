@@ -1,0 +1,30 @@
+.home {
+  text-align: center;
+  padding: 20px;
+  
+}
+
+.logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.slider {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slider-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.social {
+  margin-top: 20px;
+}
+
+.social img {
+  width: 40px;
+  margin: 10px;
+}

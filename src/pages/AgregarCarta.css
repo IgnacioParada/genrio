@@ -1,0 +1,117 @@
+.agregar-container {
+
+  max-width: 500px;
+
+  width: 100%;
+
+  margin: auto;
+
+  background: white;
+
+  padding: 25px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  box-sizing: border-box;
+
+}
+
+
+/* TÍTULO */
+
+.agregar-title {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+}
+
+
+/* INPUTS */
+
+.agregar-input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin-bottom: 15px;
+
+  border-radius: 8px;
+
+  border: 1px solid #ccc;
+
+  box-sizing: border-box;
+
+}
+
+
+/* IMAGEN PREVIEW */
+
+.preview-img {
+
+  width: 150px;
+
+  display: block;
+
+  margin: 0 auto 15px;
+
+  border-radius: 8px;
+
+}
+
+
+/* BOTÓN */
+
+.btn-guardar {
+
+  width: 100%;
+
+  padding: 12px;
+
+  background: #16a34a;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+}
+
+.btn-guardar:hover {
+
+  background: #15803d;
+
+}
+
+/* 📱 FORMULARIO RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .agregar-container {
+
+    padding: 15px;
+
+  }
+
+  .preview-img {
+
+    width: 120px;
+
+  }
+
+  .btn-guardar {
+
+    font-size: 14px;
+
+  }
+
+}

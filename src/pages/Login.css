@@ -1,0 +1,163 @@
+/* FONDO */
+
+.login-container {
+
+  height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a,
+    #1e293b
+  );
+
+}
+
+
+/* CAJA */
+
+.login-box {
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+  text-align: center;
+
+  width: 100%;
+
+  max-width: 360px;
+
+  animation: fadeIn 0.4s ease;
+
+}
+
+
+/* ANIMACIÓN */
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+    transform: translateY(20px);
+
+  }
+
+  to {
+
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+
+}
+
+
+/* LOGO */
+
+.login-logo {
+
+  width: 140px;
+
+  margin-bottom: 15px;
+
+}
+
+
+/* ERROR */
+
+.error-box {
+
+  background: #ffe5e5;
+
+  color: #b30000;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  margin-bottom: 15px;
+
+}
+
+
+/* INPUTS */
+
+.login-box input {
+
+  width: 100%;
+
+  padding: 12px;
+
+  margin-bottom: 15px;
+
+  border-radius: 8px;
+
+  border: 1px solid #ccc;
+
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+}
+
+.login-box input:focus {
+
+  border-color: black;
+
+  outline: none;
+
+}
+
+
+/* BOTÓN */
+
+.login-box button {
+
+  width: 100%;
+
+  padding: 12px;
+
+  background: black;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+}
+
+.login-box button:hover {
+
+  background: #333;
+
+}
+
+
+/* MÓVIL */
+
+@media (max-width: 500px) {
+
+  .login-box {
+
+    padding: 25px;
+
+  }
+
+}

@@ -1,0 +1,46 @@
+/* LAYOUT GENERAL */
+
+.panel-layout {
+
+  display: flex;
+
+  min-height: 100vh;
+
+}
+
+
+/* CONTENIDO */
+
+.panel-content {
+
+  flex: 1;
+
+  padding: 20px;
+
+  background: #f1f5f9;
+
+  width: 100%;
+
+  max-width: 100%;
+
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* 📱 RESPONSIVE MOVIL */
+
+@media (max-width: 768px) {
+
+  .panel-layout {
+
+    flex-direction: column;
+
+  }
+
+  /* ⚠️ IMPORTANTE:
+     YA NO TOCAMOS .sidebar AQUÍ
+     porque ahora usa hamburguesa */
+
+}
