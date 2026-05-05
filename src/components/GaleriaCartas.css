@@ -396,3 +396,28 @@ body {
   box-sizing: border-box;
 
 }
+.barra-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.barra-filtros button {
+  background: #f3f4f6;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.barra-filtros button:hover {
+  background: #e5e7eb;
+}
+
+.barra-filtros button.activo {
+  background: #111;
+  color: white;
+}

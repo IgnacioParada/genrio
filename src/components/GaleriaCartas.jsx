@@ -9,9 +9,10 @@ export default function GaleriaCartas() {
   const [cartas, setCartas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  // 🔥 FILTROS NUEVOS
-  const [precioMin, setPrecioMin] = useState("");
-  const [precioMax, setPrecioMax] = useState("");
+  // 🔥 ORDEN PRECIO
+  const [ordenPrecio, setOrdenPrecio] = useState(null); // asc | desc
+
+  // 🔥 FILTRO EDICIÓN
   const [edicionFiltro, setEdicionFiltro] = useState("");
 
   // PAGINACIÓN
@@ -31,48 +32,45 @@ export default function GaleriaCartas() {
       .then(data => setCartas(data));
   }, []);
 
-  // 🔥 OBTENER EDICIONES ÚNICAS
+  // 🔥 EDICIONES ÚNICAS
   const edicionesUnicas = [...new Set(cartas.map(c => c.edicion))];
 
-  // 🔥 FILTRAR CARTAS
+  // 🔥 FILTRADO
   const cartasFiltradas = cartas.filter(carta => {
 
     const coincideBusqueda =
       carta.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
       carta.edicion.toLowerCase().includes(busqueda.toLowerCase());
 
-    const coincidePrecioMin =
-      !precioMin || carta.precio >= Number(precioMin);
-
-    const coincidePrecioMax =
-      !precioMax || carta.precio <= Number(precioMax);
-
     const coincideEdicion =
       !edicionFiltro || carta.edicion === edicionFiltro;
 
-    return (
-      coincideBusqueda &&
-      coincidePrecioMin &&
-      coincidePrecioMax &&
-      coincideEdicion
-    );
+    return coincideBusqueda && coincideEdicion;
   });
+
+  // 🔥 ORDENAMIENTO
+  let cartasOrdenadas = [...cartasFiltradas];
+
+  if (ordenPrecio === "asc") {
+    cartasOrdenadas.sort((a, b) => a.precio - b.precio);
+  }
+
+  if (ordenPrecio === "desc") {
+    cartasOrdenadas.sort((a, b) => b.precio - a.precio);
+  }
 
   // PAGINACIÓN
   const indiceUltima = paginaActual * cartasPorPagina;
   const indicePrimera = indiceUltima - cartasPorPagina;
 
-  const cartasActuales =
-    cartasFiltradas.slice(
-      indicePrimera,
-      indiceUltima
-    );
+  const cartasActuales = cartasOrdenadas.slice(
+    indicePrimera,
+    indiceUltima
+  );
 
-  const totalPaginas =
-    Math.ceil(
-      cartasFiltradas.length /
-      cartasPorPagina
-    );
+  const totalPaginas = Math.ceil(
+    cartasOrdenadas.length / cartasPorPagina
+  );
 
   const cambiarPagina = (num) => {
     setPaginaActual(num);
@@ -94,28 +92,8 @@ export default function GaleriaCartas() {
         }}
       />
 
-      {/* 🔥 FILTROS */}
-      <div className="filtros">
-
-        <input
-          type="number"
-          placeholder="Precio mínimo"
-          value={precioMin}
-          onChange={(e) => {
-            setPrecioMin(e.target.value);
-            setPaginaActual(1);
-          }}
-        />
-
-        <input
-          type="number"
-          placeholder="Precio máximo"
-          value={precioMax}
-          onChange={(e) => {
-            setPrecioMax(e.target.value);
-            setPaginaActual(1);
-          }}
-        />
+      {/* 🔥 BARRA FILTROS BONITA */}
+      <div className="barra-filtros">
 
         <select
           value={edicionFiltro}
@@ -124,7 +102,7 @@ export default function GaleriaCartas() {
             setPaginaActual(1);
           }}
         >
-          <option value="">Todas las ediciones</option>
+          <option value="">Todas</option>
 
           {edicionesUnicas.map((ed, i) => (
             <option key={i} value={ed}>
@@ -133,6 +111,26 @@ export default function GaleriaCartas() {
           ))}
 
         </select>
+
+        <button
+          className={ordenPrecio === "asc" ? "activo" : ""}
+          onClick={() => {
+            setOrdenPrecio("asc");
+            setPaginaActual(1);
+          }}
+        >
+          Precio ↑
+        </button>
+
+        <button
+          className={ordenPrecio === "desc" ? "activo" : ""}
+          onClick={() => {
+            setOrdenPrecio("desc");
+            setPaginaActual(1);
+          }}
+        >
+          Precio ↓
+        </button>
 
       </div>
 
