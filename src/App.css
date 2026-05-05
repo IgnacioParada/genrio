@@ -1,6 +1,10 @@
 html {
   color-scheme: light;
 }
+body {
+  margin: 0;
+  background: #ffffff;
+}
 .counter {
   font-size: 16px;
   padding: 5px 10px;

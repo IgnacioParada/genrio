@@ -2,6 +2,10 @@
 html {
   color-scheme: light;
 }
+body {
+  margin: 0;
+  background: #ffffff;
+}
 :root {
   --text: #6b6375;
   --text-h: #08060d;
