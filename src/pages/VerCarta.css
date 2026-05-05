@@ -255,3 +255,25 @@
   overflow-x: auto;
 
 }
+/* 🔥 FIX TEXTO TABLA */
+
+.vercartas-container {
+  color: #111;
+}
+
+.vercartas-title {
+  color: #111;
+}
+
+.vercartas-tabla {
+  color: #111;
+}
+
+.vercartas-tabla td {
+  color: #333;
+}
+
+.vercartas-tabla tr:hover {
+  background: #f9fafb;
+  color: #111;
+}
