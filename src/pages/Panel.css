@@ -244,3 +244,24 @@ td button:last-child {
   }
 
 }
+/* 🔥 FIX COLORES PANEL */
+
+.panel-content {
+  color: #111;
+}
+
+/* TEXTO TABLA */
+table {
+  color: #111;
+}
+
+/* CELDAS */
+td {
+  color: #333;
+}
+
+/* HOVER NO CAMBIE TEXTO */
+tr:hover {
+  background: #f9fafb;
+  color: #111;
+}
