@@ -9,11 +9,9 @@ export default function GaleriaCartas() {
   const [cartas, setCartas] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  // 🔥 ORDEN PRECIO
-  const [ordenPrecio, setOrdenPrecio] = useState(null); // asc | desc
-
-  // 🔥 FILTRO EDICIÓN
+  // 🔥 FILTROS
   const [edicionFiltro, setEdicionFiltro] = useState("");
+  const [ordenPrecio, setOrdenPrecio] = useState("");
 
   // PAGINACIÓN
   const [paginaActual, setPaginaActual] = useState(1);
@@ -36,7 +34,7 @@ export default function GaleriaCartas() {
   const edicionesUnicas = [...new Set(cartas.map(c => c.edicion))];
 
   // 🔥 FILTRADO
-  const cartasFiltradas = cartas.filter(carta => {
+  let cartasFiltradas = cartas.filter(carta => {
 
     const coincideBusqueda =
       carta.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
@@ -48,29 +46,24 @@ export default function GaleriaCartas() {
     return coincideBusqueda && coincideEdicion;
   });
 
-  // 🔥 ORDENAMIENTO
-  let cartasOrdenadas = [...cartasFiltradas];
-
+  // 🔥 ORDEN PRECIO
   if (ordenPrecio === "asc") {
-    cartasOrdenadas.sort((a, b) => a.precio - b.precio);
+    cartasFiltradas.sort((a, b) => a.precio - b.precio);
   }
 
   if (ordenPrecio === "desc") {
-    cartasOrdenadas.sort((a, b) => b.precio - a.precio);
+    cartasFiltradas.sort((a, b) => b.precio - a.precio);
   }
 
   // PAGINACIÓN
   const indiceUltima = paginaActual * cartasPorPagina;
   const indicePrimera = indiceUltima - cartasPorPagina;
 
-  const cartasActuales = cartasOrdenadas.slice(
-    indicePrimera,
-    indiceUltima
-  );
+  const cartasActuales =
+    cartasFiltradas.slice(indicePrimera, indiceUltima);
 
-  const totalPaginas = Math.ceil(
-    cartasOrdenadas.length / cartasPorPagina
-  );
+  const totalPaginas =
+    Math.ceil(cartasFiltradas.length / cartasPorPagina);
 
   const cambiarPagina = (num) => {
     setPaginaActual(num);
@@ -92,8 +85,8 @@ export default function GaleriaCartas() {
         }}
       />
 
-      {/* 🔥 BARRA FILTROS BONITA */}
-      <div className="barra-filtros">
+      {/* 🔥 FILTROS BONITOS */}
+      <div className="filtros-select">
 
         <select
           value={edicionFiltro}
@@ -102,7 +95,7 @@ export default function GaleriaCartas() {
             setPaginaActual(1);
           }}
         >
-          <option value="">Todas</option>
+          <option value="">Ediciones</option>
 
           {edicionesUnicas.map((ed, i) => (
             <option key={i} value={ed}>
@@ -112,25 +105,17 @@ export default function GaleriaCartas() {
 
         </select>
 
-        <button
-          className={ordenPrecio === "asc" ? "activo" : ""}
-          onClick={() => {
-            setOrdenPrecio("asc");
+        <select
+          value={ordenPrecio}
+          onChange={(e) => {
+            setOrdenPrecio(e.target.value);
             setPaginaActual(1);
           }}
         >
-          Precio ↑
-        </button>
-
-        <button
-          className={ordenPrecio === "desc" ? "activo" : ""}
-          onClick={() => {
-            setOrdenPrecio("desc");
-            setPaginaActual(1);
-          }}
-        >
-          Precio ↓
-        </button>
+          <option value="">Precio</option>
+          <option value="asc">Precio ascendente</option>
+          <option value="desc">Precio descendente</option>
+        </select>
 
       </div>
 

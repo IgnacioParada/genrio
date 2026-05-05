@@ -396,28 +396,17 @@ body {
   box-sizing: border-box;
 
 }
-.barra-filtros {
+.filtros-select {
   display: flex;
-  justify-content: center;
   gap: 10px;
+  justify-content: center;
   margin-bottom: 15px;
 }
 
-.barra-filtros button {
-  background: #f3f4f6;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
+.filtros-select select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 14px;
-  transition: 0.2s;
-}
-
-.barra-filtros button:hover {
-  background: #e5e7eb;
-}
-
-.barra-filtros button.activo {
-  background: #111;
-  color: white;
+  min-width: 140px;
 }
