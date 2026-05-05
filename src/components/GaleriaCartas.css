@@ -100,12 +100,14 @@
   font-size: 16px;
 
   margin: 10px 0 5px;
+  color: #000000;
 
 }
 
 .carta p {
 
   margin: 3px 0;
+  color: #444;
 
 }
 
@@ -114,7 +116,7 @@
 
 .carta p:last-child {
 
-  color: #16a34a;
+  color: #e01919;
 
   font-weight: bold;
 
