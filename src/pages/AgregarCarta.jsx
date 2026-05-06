@@ -63,7 +63,7 @@ function AgregarCarta({ cartaEditar, setCartaEditar }) {
       nombre,
       precio: Number(precio),
       edicion,
-      imagen: imagen ? imagen.name : "" // ⚠️ solo nombre, no archivo real
+      imagen: imagen 
     };
 
     try {
@@ -158,10 +158,14 @@ function AgregarCarta({ cartaEditar, setCartaEditar }) {
       />
 
       <input
-        className="agregar-input"
-        type="file"
-        onChange={manejarImagen}
-      />
+  className="agregar-input"
+  placeholder="URL de imagen"
+  value={imagen || ""}
+  onChange={(e) => {
+    setImagen(e.target.value);
+    setPreview(e.target.value);
+  }}
+/>
 
       <button
         className="btn-guardar"
