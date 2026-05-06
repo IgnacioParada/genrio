@@ -413,3 +413,12 @@ body {
   text-align: center;        /* 🔥 centra horizontal */
   text-align-last: center;   /* 🔥 importante para el valor seleccionado */
 }
+
+.paginacion button:focus {
+  outline: none;
+}
+
+.paginacion button:active {
+  background: black;
+  color: white;
+}
