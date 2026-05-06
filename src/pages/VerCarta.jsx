@@ -135,14 +135,7 @@ function Cartas({ setCartaEditar }) {
 
               <td>
 
-                <img
-                  src={
-                    "https://api.hoc.cl/uploads/" +
-                    carta.imagen
-                  }
-                  className="carta-img"
-                  alt={carta.nombre}
-                />
+                <img className="carta-img" src={carta.imagen} />
 
               </td>
 

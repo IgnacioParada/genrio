@@ -132,7 +132,7 @@ export default function GaleriaCartas() {
             }
           >
 
-            <img src={`https://api.hoc.cl/uploads/${carta.imagen}`} />
+            <img src={carta.imagen} />
 
             <h3>{carta.nombre}</h3>
 
@@ -200,7 +200,7 @@ export default function GaleriaCartas() {
               ✕
             </button>
 
-            <img src={`https://api.hoc.cl/uploads/${cartaSeleccionada.imagen}`} />
+            <img src={cartaSeleccionada.imagen} />
 
             <h2>
               {cartaSeleccionada.nombre}
