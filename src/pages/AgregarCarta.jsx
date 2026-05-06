@@ -21,10 +21,7 @@ function AgregarCarta({ cartaEditar, setCartaEditar }) {
       setPrecio(String(cartaEditar.precio));
       setEdicion(cartaEditar.edicion);
 
-      setPreview(
-        "https://api.hoc.cl/uploads/" +
-        cartaEditar.imagen
-      );
+      setPreview(cartaEditar.imagen);
 
     } else {
 
