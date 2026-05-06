@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AgregarCarta.css";
 
-function AgregarCarta({
-  cartaEditar,
-  setCartaEditar
-}) {
+function AgregarCarta({ cartaEditar, setCartaEditar }) {
 
   const navigate = useNavigate();
 
@@ -21,7 +18,7 @@ function AgregarCarta({
     if (cartaEditar) {
 
       setNombre(cartaEditar.nombre);
-      setPrecio(String(cartaEditar.precio)); // 🔥 FIX
+      setPrecio(String(cartaEditar.precio));
       setEdicion(cartaEditar.edicion);
 
       setPreview(
@@ -41,7 +38,7 @@ function AgregarCarta({
 
   }, [cartaEditar]);
 
-  // 🖼 PREVIEW IMAGEN
+  // 🖼 PREVIEW IMAGEN (solo visual)
   const manejarImagen = (e) => {
 
     const file = e.target.files[0];
@@ -57,54 +54,65 @@ function AgregarCarta({
   // 💾 GUARDAR
   const guardarCarta = async () => {
 
-    // 🔥 VALIDACIÓN
     if (!precio || Number(precio) <= 0) {
       alert("Ingrese un precio válido");
       return;
     }
 
-    const formData = new FormData();
+    const data = {
+      nombre,
+      precio: Number(precio),
+      edicion,
+      imagen: imagen ? imagen.name : "" // ⚠️ solo nombre, no archivo real
+    };
 
-    formData.append("nombre", nombre);
-    formData.append("precio", Number(precio)); // 🔥 FIX
-    formData.append("edicion", edicion);
+    try {
 
-    if (imagen) {
-      formData.append("imagen", imagen);
+      // ✏️ EDITAR
+      if (cartaEditar) {
+
+        await fetch(
+          `https://api.hoc.cl/cartas/${cartaEditar.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }
+        );
+
+        alert("Carta actualizada");
+
+      }
+
+      // ➕ AGREGAR
+      else {
+
+        await fetch(
+          "https://api.hoc.cl/cartas",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }
+        );
+
+        alert("Carta agregada");
+
+      }
+
+      setCartaEditar(null);
+      navigate("/panel/ver");
+
+    } catch (error) {
+
+      console.error(error);
+      alert("Error al guardar");
+
     }
-
-    // ✏️ EDITAR
-    if (cartaEditar) {
-
-      await fetch(
-        `https://api.hoc.cl/cartas/${cartaEditar.id}`,
-        {
-          method: "PUT",
-          body: formData
-        }
-      );
-
-      alert("Carta actualizada");
-
-    }
-
-    // ➕ AGREGAR
-    else {
-
-      await fetch(
-        "https://api.hoc.cl/cartas",
-        {
-          method: "POST",
-          body: formData
-        }
-      );
-
-      alert("Carta agregada");
-
-    }
-
-    setCartaEditar(null);
-    navigate("/panel/ver");
 
   };
 
@@ -169,4 +177,3 @@ function AgregarCarta({
 }
 
 export default AgregarCarta;
-
