@@ -138,7 +138,7 @@ function Carrito() {
                 {/* IMAGEN */}
 
                 <img
-  src={`https://api.hoc.cl/uploads/${carta.imagen}`}
+  src={carta.imagen}
   alt={carta.nombre}
   className="carrito-img"
   onError={(e) => {
