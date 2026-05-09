@@ -11,7 +11,7 @@ export default function GaleriaCartas() {
 
   // 🔥 FILTROS
   const [edicionFiltro, setEdicionFiltro] = useState("");
-  const [ordenPrecio, setOrdenPrecio] = useState("");
+  const [ordenPrecio, setOrdenPrecio] = useState("desc");
 
   // PAGINACIÓN
   const [paginaActual, setPaginaActual] = useState(1);
