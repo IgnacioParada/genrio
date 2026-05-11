@@ -190,7 +190,7 @@
 
 .modal-content {
 
-  position: relative; /* 🔥 ESTA LÍNEA ARREGLA LA X */
+  position: relative; 
 
   background: white;
 
@@ -410,8 +410,8 @@ body {
   font-size: 14px;
   min-width: 140px;
 
-  text-align: center;        /* 🔥 centra horizontal */
-  text-align-last: center;   /* 🔥 importante para el valor seleccionado */
+  text-align: center;        
+  text-align-last: center;   
 }
 
 .paginacion button:focus {
