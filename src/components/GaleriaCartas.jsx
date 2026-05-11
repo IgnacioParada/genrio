@@ -122,29 +122,44 @@ export default function GaleriaCartas() {
       {/* GALERÍA */}
       <div className="galeria">
 
-        {cartasActuales.map(carta => (
+        {cartasActuales.map(carta => {
 
-          <div
-            key={carta.id}
-            className="carta"
-            onClick={() =>
-              setCartaSeleccionada(carta)
-            }
-          >
+  // IDS DE CARTAS AGOTADAS
+  const agotada = [1, 5, 9].includes(carta.id);
 
-            <img src={carta.imagen} />
+  return (
 
-            <h3>{carta.nombre}</h3>
+    <div
+      key={carta.id}
+      className="carta"
+      onClick={() => {
+        if (!agotada) {
+          setCartaSeleccionada(carta);
+        }
+      }}
+    >
 
-            <p>{carta.edicion}</p>
+      <img src={carta.imagen} />
 
-            <p>
-              ${Number(carta.precio).toLocaleString()}
-            </p>
+      {agotada && (
+        <div className="overlay-agotado">
+          AGOTADO
+        </div>
+      )}
 
-          </div>
+      <h3>{carta.nombre}</h3>
 
-        ))}
+      <p>{carta.edicion}</p>
+
+      <p>
+        ${Number(carta.precio).toLocaleString()}
+      </p>
+
+    </div>
+
+  );
+
+})}
 
       </div>
 
